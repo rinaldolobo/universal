@@ -39,7 +39,7 @@ app.get('/*', (req, res) => {
     res: res
   },(err, result) => {
     const dom = new JSDOM(result);
-    console.log(dom.window.document.querySelector("html").outerHTML);
+    // console.log(dom.window.document.querySelector("html").outerHTML);
     let svgStr = dom.window.document.querySelector("svg").outerHTML;
     let height = dom.window.document.querySelector("svg").getAttribute('height');
     let width = dom.window.document.querySelector("svg").getAttribute('width');
@@ -48,6 +48,7 @@ app.get('/*', (req, res) => {
     fabric.loadSVGFromString(svgStr, function(objects, options) {
       const obj = new fabric.PathGroup(objects, options);
       canvas.add(obj);
+      console.log('<img src="' + canvas.toDataURL() + '" />');
       dom.window.document.querySelector("svg").outerHTML = '<img src="' + canvas.toDataURL() + '" />';
       res.send(dom.window.document.querySelector("html").outerHTML);
     });
