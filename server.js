@@ -41,7 +41,7 @@ app.get('/*', (req, res) => {
     const dom = new JSDOM(result);
     console.log(dom.window.document.querySelector("svg").outerHTML);
     const canvas = new fabric.createCanvasForNode(100, 100);
-    const svgStr = '<svg height="100" width="100"><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /></svg>';
+    const svgStr = dom.window.document.querySelector("svg").outerHTML;
 
     fabric.loadSVGFromString(svgStr, function(objects, options) {
       const obj = new fabric.PathGroup(objects, options);
