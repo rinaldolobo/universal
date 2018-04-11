@@ -1,0 +1,29 @@
+
+
+/deep/ .d3-chart {
+  width: 100%;
+  height: 400px;
+}
+
+/deep/ .d3-chart .axis path,
+/deep/ .d3-chart .axis line {
+  stroke: #999;
+}
+
+/deep/ .d3-chart .axis text {
+  fill: #999;
+}
+
+/deep/ .d3-chart {
+  width: 100%;
+  height: 400px;
+}
+
+/deep/ .d3-chart .axis path,
+/deep/ .d3-chart .axis line {
+  stroke: #999;
+}
+
+/deep/ .d3-chart .axis text {
+  fill: #999;
+}

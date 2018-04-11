@@ -1,0 +1,7 @@
+<svg id="testing" [attr.height]="radius* 2 + 10" [attr.width]="radius * 2">
+  <g [attr.transform]="'translate('+ radius +', '+ radius +')'">
+    <g *ngFor="let path of paths; let i = index">
+      <path [attr.d]="path" [style.fill]="colors(i)"></path>
+    </g>
+  </g>
+</svg>
