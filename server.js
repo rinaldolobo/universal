@@ -46,7 +46,7 @@ app.get('/*', (req, res) => {
     fabric.loadSVGFromString(svgStr, function(objects, options) {
       const obj = new fabric.PathGroup(objects, options);
       canvas.add(obj);
-      res.send('<img src="' + canvas.toDataURL() + '" />');
+      res.send(svgStr +'<img src="' + canvas.toDataURL() + '" />');
     });
   });
 });
