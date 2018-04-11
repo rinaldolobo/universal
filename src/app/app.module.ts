@@ -19,7 +19,8 @@ import {Http, HttpModule} from '@angular/http';
     DwelloModule,
     AiabstracModule,
     SpaceUtilizationModule,
-    HttpModule
+    HttpModule,
+
   ],
   providers: [API],
   bootstrap: [AppComponent]
