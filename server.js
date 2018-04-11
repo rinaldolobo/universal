@@ -39,9 +39,9 @@ app.get('/*', (req, res) => {
     res: res
   },(err, result) => {
     const dom = new JSDOM(result);
-    console.log(dom.window.document.querySelector("svg").outerHTML);
+    console.log(dom.window.document.querySelector(".ai-abstract-main").outerHTML);
     const canvas = new fabric.createCanvasForNode();
-    const svgStr = dom.window.document.querySelector("svg").outerHTML;
+    const svgStr = dom.window.document.querySelector(".ai-abstract-main").outerHTML;
 
     fabric.loadSVGFromString(svgStr, function(objects, options) {
       const obj = new fabric.PathGroup(objects, options);
