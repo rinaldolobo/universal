@@ -45,7 +45,7 @@ app.get('/*', (req, res) => {
     let width = dom.window.document.querySelector("svg").getAttribute('width');
     const canvas = new fabric.createCanvasForNode(height,width);
 
-    fabric.loadSVGFromString(dom.window.document.querySelector("svg").outerHTML, function(objects, options) {
+    fabric.loadSVGFromString(svgStr, function(objects, options) {
       const obj = new fabric.PathGroup(objects, options);
       canvas.add(obj);
       dom.window.document.querySelector("svg").outerHTML = '<img src="' + canvas.toDataURL() + '" />';
