@@ -41,8 +41,8 @@ app.get('/*', (req, res) => {
     const dom = new JSDOM(result);
     console.log(dom.window.document.querySelector("html").outerHTML);
     let svgStr = dom.window.document.querySelector("svg").outerHTML;
-    let height = dom.window.document.querySelector("svg").attribute('height');
-    let width = dom.window.document.querySelector("svg").attribute('width');
+    let height = dom.window.document.querySelector("svg").getAttribute('height');
+    let width = dom.window.document.querySelector("svg").getAttribute('width');
     const canvas = new fabric.createCanvasForNode(height,width);
 
     fabric.loadSVGFromString(dom.window.document.querySelector("svg").outerHTML, function(objects, options) {
