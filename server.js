@@ -40,11 +40,11 @@ app.get('/*', (req, res) => {
   },(err, result) => {
     const dom = new JSDOM(result);
     console.log(dom.window.document.querySelector("svg").outerHTML);
-    const canvas = new fabric.createCanvasForNode(100, 100);
-    var svgStr = '<svg height="100" width="100"><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /></svg>';
+    const canvas = new fabric.Canvas(100, 100);
+    const svgStr = '<svg height="100" width="100"><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /></svg>';
 
     fabric.loadSVGFromString(svgStr, function(objects, options) {
-      var obj = new fabric.PathGroup(objects, options);
+      const obj = new fabric.Group(objects, options);
       canvas.add(obj);
       res.send('<img src="' + canvas.toDataURL() + '" />');
     });
