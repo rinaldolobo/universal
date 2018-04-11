@@ -40,7 +40,7 @@ app.get('/*', (req, res) => {
   },(err, result) => {
     const dom = new JSDOM(result);
     console.log(dom.window.document.querySelector("svg").outerHTML);
-    const canvas = new fabric.createCanvasForNode(100, 100);
+    const canvas = new fabric.createCanvasForNode();
     const svgStr = dom.window.document.querySelector("svg").outerHTML;
 
     fabric.loadSVGFromString(svgStr, function(objects, options) {
