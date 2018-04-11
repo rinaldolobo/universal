@@ -7,8 +7,7 @@ import {DwelloModule} from './demo-chart/dwemod';
 import {AiabstracModule} from './aiabstract-module/aiabstract-module.module';
 import {SpaceUtilizationModule} from './space-utilization/space-utilization.module';
 import {API} from './app.service';
-import {Http, HttpModule} from '@angular/http';
-
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import {Http, HttpModule} from '@angular/http';
     DwelloModule,
     AiabstracModule,
     SpaceUtilizationModule,
-    HttpModule,
-
+    HttpModule
   ],
   providers: [API],
   bootstrap: [AppComponent]

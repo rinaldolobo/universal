@@ -39,15 +39,17 @@ app.get('/*', (req, res) => {
     res: res
   },(err, result) => {
     const dom = new JSDOM(result);
-    console.log(dom.window.document.querySelector(".ai-abstract-main").outerHTML);
-    const canvas = new fabric.createCanvasForNode();
+    console.log(dom.window.document.querySelector("html").outerHTML);
     let svgStr = dom.window.document.querySelector("svg").outerHTML;
+    let height = dom.window.document.querySelector("svg").attribute('height');
+    let width = dom.window.document.querySelector("svg").attribute('width');
+    const canvas = new fabric.createCanvasForNode(height,width);
 
     fabric.loadSVGFromString(dom.window.document.querySelector("svg").outerHTML, function(objects, options) {
       const obj = new fabric.PathGroup(objects, options);
       canvas.add(obj);
       dom.window.document.querySelector("svg").outerHTML = '<img src="' + canvas.toDataURL() + '" />';
-      res.send(dom.window.document.querySelector(".ai-abstract-main").outerHTML);
+      res.send(dom.window.document.querySelector("html").outerHTML);
     });
   });
 });
