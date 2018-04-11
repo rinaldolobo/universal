@@ -1,2 +1,6 @@
-<h3>Pie Chart</h3>
-<page-dwello></page-dwello>
+<div style="margin-top:15px;" class="container">
+  <div *ngIf="data">
+    <app-space-utilization [data]="data" (deleteEmit)="deleteEmitted($event)"></app-space-utilization>
+    <!-- <app-ai-a-components [data]="data" class="col-xs-12 col-sm-8 col-md-5 col-lg-5" (deleteEmit)="deleteEmitted($event)"></app-ai-a-components> -->
+  </div>
+</div>

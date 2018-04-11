@@ -1,0 +1,17 @@
+<app-ai-abstract-components [datasetName]="data?.status" [entityName]="data?.message" (deleteEmit)="deleteEmitC($event);">
+  <div body>
+    <!-- {{data}} -->
+
+    <svg id="testing" [attr.height]="radius* 2 + 10" [attr.width]="radius * 2">
+        <g [attr.transform]="'translate('+ radius +', '+ radius +')'">
+          <g *ngFor="let path of paths; let i = index">
+            <path [attr.d]="path" [style.fill]="colors(i)"></path>
+          </g>
+        </g>
+      </svg>
+    
+  </div> 
+  <div desc>
+    {{data.significance}}
+  </div>
+  <app-ai-abstract-components>

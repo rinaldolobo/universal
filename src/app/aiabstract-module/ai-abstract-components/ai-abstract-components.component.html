@@ -1,0 +1,40 @@
+<section class="container">
+  <div class="col-xs-12 ai-abstract-main  card" #card [ngClass]="showDesc?'ai-abstract-desc-back flipped':''">
+    
+    <div class="col-xs-12 row" *ngIf="!showDesc" style="position: absolute; z-index: 3;">
+      <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6" style="padding: 10px; white-space: nowrap;overflow: hidden;  text-overflow: ellipsis;">
+        <span class="ai-abstract-title">{{datasetName}}</span>
+        <br>
+        <span class="ai-abstract-entity">{{entityName}}</span>
+      </div>
+      <div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 pull-right ai-abstract-status" style="text-align: right;">
+        <div class="ai-abstract-status-inner" (click)="flip()">
+          <img style="min-width: 32px; min-height:32px" class="img-responsive" src="https://storage.googleapis.com/dwello_static_assets/images/abstract-ai-info.png">
+        </div>
+        <!-- <br class="visible-xs"> -->
+        <div class="ai-abstract-status-inner" (click)="clickx($event)">
+          <img style="min-width: 32px; min-height:32px" class="img-responsive" src="https://storage.googleapis.com/dwello_static_assets/images/abstract-ai-close.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 front ai-abstract-content" *ngIf="!showDesc" style="position: relative;z-index: 1;">
+      <ng-content select="[body]"></ng-content>
+    </div>
+      
+    <div class="col-xs-12 back" *ngIf="showDesc" style="padding: 0px;">
+      <div style="padding: 15px;">
+        <div class="ai-abstract-desc-title">{{datasetName}}</div>
+        <div class="ai-abstract-desc" style="padding: 0px;">
+          <ng-content select="[desc]"></ng-content>
+          <div style="height: 10vh;"></div>
+        </div>
+      </div>
+
+
+      <div class="ai-abstract-desc-btn-container">
+        <button class="ai-abstract-desc-btn btn btn-block" (click)="flip()"> OK</button>
+      </div>
+    </div>
+  </div>
+</section>

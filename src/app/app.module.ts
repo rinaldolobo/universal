@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {DwelloModule} from './demo-chart/dwemod';
+import {AiabstracModule} from './aiabstract-module/aiabstract-module.module';
+import {SpaceUtilizationModule} from './space-utilization/space-utilization.module';
+import {API} from './app.service';
+import {Http, HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -12,9 +16,12 @@ import {DwelloModule} from './demo-chart/dwemod';
   ],
   imports: [
     BrowserModule,
-    DwelloModule
+    DwelloModule,
+    AiabstracModule,
+    SpaceUtilizationModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [API],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
