@@ -47,7 +47,7 @@ app.get('/*', (req, res) => {
       const obj = new fabric.PathGroup(objects, options);
       dom.window.document.querySelector("svg").outerHTML = '<img src="' + canvas.toDataURL() + '" />';
       canvas.add(obj);
-      res.send(dom.window.document);
+      res.send(dom.window.document.querySelector(".ai-abstract-main").outerHTML);
     });
   });
 });
